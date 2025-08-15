@@ -208,8 +208,8 @@ let quizScores = {
   cachorro_grande: 0
 };
 
-// Chaves para localStorage
-const STORAGE_KEYS = {
+// Chaves para localStorage do Quiz
+const QUIZ_STORAGE_KEYS = {
   QUIZ_RESULTS: 'viva_bicho_quiz_results'
 };
 
@@ -220,8 +220,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initializeQuiz() {
   // Inicializar localStorage se necessário
-  if (!localStorage.getItem(STORAGE_KEYS.QUIZ_RESULTS)) {
-    localStorage.setItem(STORAGE_KEYS.QUIZ_RESULTS, JSON.stringify([]));
+  if (!localStorage.getItem(QUIZ_STORAGE_KEYS.QUIZ_RESULTS)) {
+    localStorage.setItem(QUIZ_STORAGE_KEYS.QUIZ_RESULTS, JSON.stringify([]));
   }
 }
 
@@ -463,7 +463,7 @@ function showRecommendedAnimals(recommendedPetType) {
 
 function saveQuizResult(result) {
   try {
-    const results = JSON.parse(localStorage.getItem(STORAGE_KEYS.QUIZ_RESULTS) || '[]');
+    const results = JSON.parse(localStorage.getItem(QUIZ_STORAGE_KEYS.QUIZ_RESULTS) || '[]');
     results.unshift(result); // Adicionar no início
     
     // Manter apenas os últimos 5 resultados
@@ -471,7 +471,7 @@ function saveQuizResult(result) {
       results.splice(5);
     }
     
-    localStorage.setItem(STORAGE_KEYS.QUIZ_RESULTS, JSON.stringify(results));
+    localStorage.setItem(QUIZ_STORAGE_KEYS.QUIZ_RESULTS, JSON.stringify(results));
   } catch (error) {
     console.error('Erro ao salvar resultado do quiz:', error);
   }
@@ -541,7 +541,7 @@ function showAlert(message, type = 'info') {
 // Função para obter histórico de resultados (pode ser usada em outras páginas)
 function getQuizHistory() {
   try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEYS.QUIZ_RESULTS) || '[]');
+    return JSON.parse(localStorage.getItem(QUIZ_STORAGE_KEYS.QUIZ_RESULTS) || '[]');
   } catch (error) {
     console.error('Erro ao obter histórico do quiz:', error);
     return [];
