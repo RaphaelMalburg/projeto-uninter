@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ONG Viva Bicho - Quiz: Qual Pet é Ideal para Você?</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/styles.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <img src="../assets/logo.png" alt="Viva Bicho Logo" height="40" class="d-inline-block align-text-top" />
+          Viva Bicho
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="adocao.html">Adoção</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ajuda.html">Como Ajudar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="eventos.html">Eventos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contato.html">Contato</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="calculadora.html">Calculadora</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="quiz.html">Quiz</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="favoritos.html">Favoritos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+      <!-- Quiz Header -->
+      <div class="row" id="quizHeader">
+        <div class="col-12 text-center">
+          <h1 class="mb-4">
+            <i class="fas fa-question-circle text-primary"></i> Qual Pet é Ideal para Você?
+          </h1>
+          <p class="lead text-muted mb-4">
+            Descubra qual tipo de animal de estimação combina melhor com seu estilo de vida!
+          </p>
+          <div class="card mx-auto" style="max-width: 600px;">
+            <div class="card-body">
+              <h5 class="card-title">Como funciona?</h5>
+              <p class="card-text">
+                Responda 10 perguntas sobre sua rotina, moradia e preferências. 
+                Ao final, mostraremos qual pet seria perfeito para você e animais disponíveis para adoção!
+              </p>
+              <button class="btn btn-primary btn-lg" onclick="startQuiz()">
+                <i class="fas fa-play"></i> Começar Quiz
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quiz Questions -->
+      <div class="row" id="quizContainer" style="display: none;">
+        <div class="col-lg-8 mx-auto">
+          <!-- Progress Bar -->
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span>Progresso</span>
+                <span id="progressText">1 de 10</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" id="progressBar" role="progressbar" style="width: 10%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question Card -->
+          <div class="card">
+            <div class="card-header bg-primary text-white">
+              <h5 class="mb-0" id="questionTitle">Pergunta 1</h5>
+            </div>
+            <div class="card-body">
+              <h6 id="questionText" class="mb-4"></h6>
+              <div id="answersContainer"></div>
+              
+              <div class="d-flex justify-content-between mt-4">
+                <button class="btn btn-outline-secondary" id="prevBtn" onclick="previousQuestion()" disabled>
+                  <i class="fas fa-arrow-left"></i> Anterior
+                </button>
+                <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>
+                  Próxima <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quiz Results -->
+      <div class="row" id="resultsContainer" style="display: none;">
+        <div class="col-lg-10 mx-auto">
+          <div class="card">
+            <div class="card-header bg-success text-white text-center">
+              <h4 class="mb-0"><i class="fas fa-trophy"></i> Resultado do Quiz</h4>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4 text-center">
+                  <div id="resultImage" class="mb-3"></div>
+                  <h3 id="resultTitle" class="text-success"></h3>
+                  <p id="resultSubtitle" class="text-muted"></p>
+                </div>
+                <div class="col-md-8">
+                  <h5>Por que esse pet é ideal para você:</h5>
+                  <div id="resultDescription" class="mb-4"></div>
+                  
+                  <h5>Características importantes:</h5>
+                  <div id="resultCharacteristics" class="mb-4"></div>
+                  
+                  <h5>Dicas para uma adoção bem-sucedida:</h5>
+                  <div id="resultTips"></div>
+                </div>
+              </div>
+              
+              <hr>
+              
+              <div class="text-center">
+                <h5 class="mb-3">Animais disponíveis que combinam com você:</h5>
+                <div id="recommendedAnimals" class="row"></div>
+                
+                <div class="mt-4">
+                  <button class="btn btn-outline-primary me-2" onclick="shareResult()">
+                    <i class="fas fa-share"></i> Compartilhar
+                  </button>
+                  <button class="btn btn-secondary me-2" onclick="restartQuiz()">
+                    <i class="fas fa-redo"></i> Refazer Quiz
+                  </button>
+                  <a href="adocao.html" class="btn btn-success">
+                    <i class="fas fa-heart"></i> Ver Todos os Animais
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>ONG Viva Bicho</h5>
+            <p>Transformando vidas através do amor aos animais.</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <p>&copy; 2024 ONG Viva Bicho. Todos os direitos reservados.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/adoption.js"></script>
+    <script src="../js/quiz.js"></script>
+  </body>
+</html>

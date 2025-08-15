@@ -12,16 +12,25 @@ Website institucional desenvolvido para a ONG Viva Bicho, uma organização dedi
 
 ## 📋 Funcionalidades
 
+### Funcionalidades Principais
 - Design responsivo para todos os dispositivos
 - Carrossel de imagens na página inicial
 - Animações suaves de elementos
 - Sistema de estatísticas animadas
 - Formulários interativos
-- Armazenamento local de dados
+- Armazenamento local de dados (localStorage)
 - Newsletter com validação
 - Galeria de animais para adoção
 - Blog de notícias
 - Área de eventos
+
+### Novas Funcionalidades Implementadas
+- **Sistema de Favoritos** ❤️: Marque animais favoritos com ícones de coração
+- **Galeria de Fotos** 📸: Visualize múltiplas imagens dos animais em modal interativo
+- **Calculadora de Custos** 💰: Estime os custos de adoção de pets
+- **Quiz Interativo** 🧩: "Qual Pet é Ideal para Você?" - descubra o pet perfeito
+- **Página de Favoritos**: Visualize todos os animais salvos como favoritos
+- **Navegação Integrada**: Acesso fácil a todas as funcionalidades pelo menu
 
 ## 🎨 Paleta de Cores
 
@@ -34,22 +43,57 @@ Website institucional desenvolvido para a ONG Viva Bicho, uma organização dedi
 ## 📁 Estrutura do Projeto
 
 ```
-trabalho-uninter/
+projeto-uninter/
 ├── index.html
+├── README.md
+├── context.md
 ├── css/
 │   └── styles.css
 ├── js/
-│   └── main.js
-├── images/
+│   ├── main.js
+│   ├── adoption.js
+│   ├── calculadora.js
+│   ├── quiz.js
+│   ├── favoritos.js
+│   ├── blog.js
+│   ├── contact.js
+│   ├── events.js
+│   └── help.js
 ├── assets/
-├── components/
+│   ├── logo.png
+│   ├── hero1.jpg
+│   ├── hero2.jpg
+│   ├── hero3.jpg
+│   ├── cat1.jpg
+│   ├── dog1.jpg
+│   └── blog/
 └── pages/
     ├── adocao.html
     ├── ajuda.html
     ├── eventos.html
     ├── blog.html
-    └── contato.html
+    ├── contato.html
+    ├── calculadora.html
+    ├── quiz.html
+    └── favoritos.html
 ```
+
+## 💾 Armazenamento de Dados
+
+Todas as funcionalidades utilizam localStorage para persistir dados:
+- Favoritos dos usuários
+- Resultados do quiz
+- Cálculos da calculadora
+- Configurações de preferências
+
+## 🎓 Projeto Acadêmico
+
+Este projeto foi desenvolvido como trabalho acadêmico, demonstrando:
+- Desenvolvimento web front-end moderno
+- Uso de APIs do navegador (localStorage)
+- Design responsivo e acessível
+- Interatividade com JavaScript
+- Boas práticas de UX/UI
 
 ## 🚀 Como Executar o Projeto
 

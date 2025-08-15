@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ONG Viva Bicho - Calculadora de Custos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/styles.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <img src="../assets/logo.png" alt="Viva Bicho Logo" height="40" class="d-inline-block align-text-top" />
+          Viva Bicho
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="adocao.html">Adoção</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ajuda.html">Como Ajudar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="eventos.html">Eventos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contato.html">Contato</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="calculadora.html">Calculadora</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="quiz.html">Quiz</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="favoritos.html">Favoritos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="text-center mb-4">
+            <i class="fas fa-calculator text-primary"></i> Calculadora de Custos de Adoção
+          </h1>
+          <p class="text-center text-muted mb-5">
+            Descubra quanto custa manter um pet e planeje seu orçamento para uma adoção responsável.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Calculator Form -->
+        <div class="col-lg-8">
+          <div class="card">
+            <div class="card-header bg-primary text-white">
+              <h5 class="mb-0"><i class="fas fa-paw"></i> Informações do Pet</h5>
+            </div>
+            <div class="card-body">
+              <form id="costCalculatorForm">
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label for="petType" class="form-label">Tipo de Animal</label>
+                    <select class="form-select" id="petType" required>
+                      <option value="">Selecione...</option>
+                      <option value="cachorro-pequeno">Cachorro Pequeno</option>
+                      <option value="cachorro-medio">Cachorro Médio</option>
+                      <option value="cachorro-grande">Cachorro Grande</option>
+                      <option value="gato">Gato</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="petAge" class="form-label">Idade</label>
+                    <select class="form-select" id="petAge" required>
+                      <option value="">Selecione...</option>
+                      <option value="filhote">Filhote (até 1 ano)</option>
+                      <option value="adulto">Adulto (1-7 anos)</option>
+                      <option value="idoso">Idoso (7+ anos)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <h6 class="text-primary mb-3"><i class="fas fa-utensils"></i> Alimentação</h6>
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label for="foodQuality" class="form-label">Qualidade da Ração</label>
+                    <select class="form-select" id="foodQuality">
+                      <option value="basica">Básica</option>
+                      <option value="premium" selected>Premium</option>
+                      <option value="super-premium">Super Premium</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="treats" class="form-label">Petiscos Mensais (R$)</label>
+                    <input type="number" class="form-control" id="treats" value="30" min="0">
+                  </div>
+                </div>
+
+                <h6 class="text-primary mb-3"><i class="fas fa-stethoscope"></i> Cuidados Veterinários</h6>
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label for="vetVisits" class="form-label">Consultas por Ano</label>
+                    <select class="form-select" id="vetVisits">
+                      <option value="2">2 (Básico)</option>
+                      <option value="3" selected>3 (Recomendado)</option>
+                      <option value="4">4 (Preventivo)</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="insurance" class="form-label">Plano de Saúde Pet</label>
+                    <select class="form-select" id="insurance">
+                      <option value="0">Não</option>
+                      <option value="50">Básico (R$ 50/mês)</option>
+                      <option value="100">Completo (R$ 100/mês)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <h6 class="text-primary mb-3"><i class="fas fa-cut"></i> Higiene e Estética</h6>
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label for="grooming" class="form-label">Banho e Tosa (por mês)</label>
+                    <select class="form-select" id="grooming">
+                      <option value="0">Em casa</option>
+                      <option value="50">1x no pet shop</option>
+                      <option value="100" selected>2x no pet shop</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="hygiene" class="form-label">Produtos de Higiene (R$/mês)</label>
+                    <input type="number" class="form-control" id="hygiene" value="25" min="0">
+                  </div>
+                </div>
+
+                <h6 class="text-primary mb-3"><i class="fas fa-gamepad"></i> Entretenimento</h6>
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label for="toys" class="form-label">Brinquedos (R$/mês)</label>
+                    <input type="number" class="form-control" id="toys" value="20" min="0">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="accessories" class="form-label">Acessórios (R$/mês)</label>
+                    <input type="number" class="form-control" id="accessories" value="15" min="0">
+                  </div>
+                </div>
+
+                <div class="text-center">
+                  <button type="button" class="btn btn-primary btn-lg" onclick="calculateCosts()">
+                    <i class="fas fa-calculator"></i> Calcular Custos
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Panel -->
+        <div class="col-lg-4">
+          <div class="card" id="resultsCard" style="display: none;">
+            <div class="card-header bg-success text-white">
+              <h5 class="mb-0"><i class="fas fa-chart-pie"></i> Resultado</h5>
+            </div>
+            <div class="card-body">
+              <div class="text-center mb-3">
+                <h3 class="text-success" id="totalMonthly">R$ 0,00</h3>
+                <p class="text-muted">Custo mensal estimado</p>
+              </div>
+              
+              <div class="text-center mb-3">
+                <h4 class="text-info" id="totalYearly">R$ 0,00</h4>
+                <p class="text-muted">Custo anual estimado</p>
+              </div>
+
+              <hr>
+              
+              <h6>Breakdown dos Custos:</h6>
+              <div id="costBreakdown"></div>
+              
+              <hr>
+              
+              <div class="alert alert-info">
+                <h6><i class="fas fa-lightbulb"></i> Dicas para Economizar:</h6>
+                <ul class="mb-0" id="savingTips"></ul>
+              </div>
+              
+              <div class="d-grid gap-2 mt-3">
+                <button class="btn btn-outline-primary" onclick="shareResults()">
+                  <i class="fas fa-share"></i> Compartilhar
+                </button>
+                <a href="adocao.html" class="btn btn-success">
+                  <i class="fas fa-heart"></i> Ver Animais
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>ONG Viva Bicho</h5>
+            <p>Transformando vidas através do amor aos animais.</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <p>&copy; 2024 ONG Viva Bicho. Todos os direitos reservados.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/calculadora.js"></script>
+  </body>
+</html>
